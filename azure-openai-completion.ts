@@ -9,10 +9,10 @@ const resource = 'waracle-openai-eus';
 
 // Corresponds to your Model deployment within your OpenAI resource, e.g. my-gpt35-16k-deployment
 // Navigate to the Azure OpenAI Studio to deploy a model.
-const model = 'test-gpt-35-turbo';
+const model = process.env.OPENAI_API_DEPLOYMENT || "test-gpt-35-turbo";
 
 // https://learn.microsoft.com/en-us/azure/ai-services/openai/reference#rest-api-versioning
-const apiVersion = '2023-06-01-preview'
+const apiVersion = process.env.OPENAI_API_VERSION;
 
 const apiKey = process.env.OPENAI_API_KEY;
 if (!apiKey) {
