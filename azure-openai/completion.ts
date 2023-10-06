@@ -8,11 +8,11 @@ import { Configuration, OpenAIApi } from "azure-openai";
 
     const openAiApi = new OpenAIApi(
       new Configuration({
-        apiKey: process.env.OPENAI_API_KEY,
+        apiKey: process.env.AZURE_OPENAI_API_KEY,
         // add azure info into configuration
         azure: {
-          apiKey: process.env.OPENAI_API_KEY,
-          endpoint: process.env.OPENAI_API_BASE,
+          apiKey: process.env.AZURE_OPENAI_API_KEY,
+          endpoint: process.env.AZURE_OPENAI_API_BASE,
           // deploymentName is optional, if you donot set it, you need to set it in the request parameter
           deploymentName: "test-gpt-35-turbo",
         }

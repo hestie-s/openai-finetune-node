@@ -1,11 +1,8 @@
-#!/usr/bin/env -S npm run tsn -T
-
+import 'dotenv/config';
 import OpenAI from 'openai';
 
 // gets API Key from environment variable OPENAI_API_KEY
-const openai = new OpenAI({
-  apiKey: "<open api key>"
-}
+const openai = new OpenAI(
 );
 
 const model = 'gpt-3.5-turbo';

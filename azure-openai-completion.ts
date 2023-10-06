@@ -9,12 +9,12 @@ const resource = 'waracle-openai-eus';
 
 // Corresponds to your Model deployment within your OpenAI resource, e.g. my-gpt35-16k-deployment
 // Navigate to the Azure OpenAI Studio to deploy a model.
-const model = process.env.OPENAI_API_DEPLOYMENT || "test-gpt-35-turbo";
+const model = process.env.AZURE_OPENAI_API_DEPLOYMENT || "test-gpt-35-turbo";
 
 // https://learn.microsoft.com/en-us/azure/ai-services/openai/reference#rest-api-versioning
-const apiVersion = process.env.OPENAI_API_VERSION;
+const apiVersion = process.env.AZURE_OPENAI_API_VERSION;
 
-const apiKey = process.env.OPENAI_API_KEY;
+const apiKey = process.env.AZURE_OPENAI_API_KEY;
 if (!apiKey) {
   throw new Error('The AZURE_OPENAI_API_KEY environment variable is missing or empty.');
 }
@@ -33,10 +33,12 @@ async function main() {
     model,
     messages: [{ role: 'user', content: 'Say hello!' }],
   });
-  console.log(result.choices[0]!.message?.content);
+  console.log('User: Say hello!')
+  console.log('GPT:', result.choices[0]!.message?.content);
 
   console.log();
   console.log('Streaming:');
+  console.log('User: Say hello!')
   const stream = await openai.chat.completions.create({
     model,
     messages: [{ role: 'user', content: 'Say hello!' }],

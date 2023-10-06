@@ -11,8 +11,8 @@ import 'dotenv/config';
 import {OpenAIClient, AzureKeyCredential} from '@azure/openai';
 
 
-const base = process.env.OPENAI_API_BASE || "";
-const key = process.env.OPENAI_API_KEY || "";
+const base = process.env.AZURE_OPENAI_API_BASE || "";
+const key = process.env.AZURE_OPENAI_API_KEY || "";
 
 const client = new OpenAIClient(
   base,
